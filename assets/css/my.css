@@ -1,0 +1,1772 @@
+:root {
+    --colorDefault: #f9f9f9;
+    --colorPrimary: #428bca;
+    --colorInfo: #5bc0de;
+    --colorSuccess: #5cb85c;
+    --colorWarning: #ED9F35;
+    --colorDanger: #d9534f;
+    --colorPrimaryLighter: #609dd2;
+    /*--colorSuccessHover: #2c982c;*/
+    /*--colorWarningHover: #ED9F35;*/
+    /*--colorDangerHover: #d9534f;*/
+
+    --colorGrayLight: #BBB;
+    --colorGray: #999;
+    --colorGrayDark: #777;
+    --colorNavLight: #333;
+    --colorNav: #222;
+    --colorNavTemplate: #343a40;
+
+    --darkOpacityLight: rgba(0, 0, 0, 0.25);
+    --darkOpacity: rgba(0, 0, 0, 0.50);
+    --darkOpacityDark: rgba(0, 0, 0, 0.75);
+
+    --lightOpacityLightExtra: rgba(255, 255, 255, 0.12);
+    --lightOpacityLight: rgba(255, 255, 255, 0.25);
+    --lightOpacity: rgba(255, 255, 255, 0.50);
+    --lightOpacityDark: rgba(255, 255, 255, 0.75);
+
+    --agriconGreen1: #4FF57E;
+    --agriconGreen2: #3BB55D;
+    --agriconGreen3: #226936;
+    --agriconGreen4: #26763D;
+    --agriconGreen5: #1A4F29;
+    --agriconYellow: #F6C62E;
+
+    --font-family-thin: Roboto-Thin, sans-serif;
+    --font-family-light: Roboto-Light, sans-serif;
+    --font-family-regular: Roboto-Regular, sans-serif;
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../fonts/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Thin';
+    src: url('../fonts/Roboto-Thin.ttf') format('truetype');
+}
+
+/* algemeen
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 100px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    overflow-y: overlay;
+    padding-bottom: 25px;
+
+}
+
+main {
+    /*padding: 30px 15px 0;*/
+}
+
+.container {
+    padding: 0 !important;
+}
+
+h3 {
+    color: var(--agriconGreen3) !important;
+}
+
+/*titel*/
+div.agricon-content-title {
+    margin-bottom: 30px;
+    /*position: relative;*/
+}
+
+/*nav dropdown - submenus*/
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu a::after {
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 6px;
+    top: .8em;
+}
+
+.dropdown-submenu .dropdown-menu {
+    /*top: 0;*/
+    top: -11px;
+    left: 100%;
+    /*margin-left: .1rem;*/
+    /*margin-right: .1rem;*/
+}
+
+/*set something in color*/
+.set-color-red {
+    color: var(--colorDanger);
+}
+
+.set-color-green {
+    color: var(--colorSuccess);
+}
+.fa-times:hover,
+.fa-pencil-alt:hover{
+    cursor: pointer;
+}
+
+/*alert messages*/
+div#agricon_alert_container,
+div.agricon-alert {
+    float: right;
+    position: fixed;
+    right: -3px;
+    /*top: 56px;*/
+    top: 90px;
+    width: 50%;
+    min-height: 50px;
+    z-index: 2;
+}
+
+/*accordion - headerpanel*/
+div#accordion div.card-header {
+    background-color: lightgray;
+}
+
+/*accordion - titels*/
+.btn-link {
+    color: black;
+    font-size: 0.7em;
+}
+
+/*accordion - eerste accordion*/
+.agricon-card-firstaccordioncard {
+    margin-bottom: 20px;
+}
+
+/*accordion - accordions met wijzigings-table*/
+div.agricon-card-body-table {
+    padding: 0;
+}
+
+div.agricon-card-body-table > section {
+    padding-left: 4px;
+    /*padding-left: 18px;*/ /*voor even breed links te maken als de scrollbar rechts*/
+    padding-right: 4px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+div.agricon-card-body-table > section > div {
+    margin-bottom: 0;
+}
+
+div.agricon-wijzigbestaande-zoekveld > input {
+    margin: 5px;
+}
+
+div.agricon-wijzigbestaande-ajaxtable {
+
+    /*background: red;*/
+    /*TODO indien de twee accordions omgewisseld moeten worden, ook de "agricon-card-firstaccordioncard" in de html omdraaien en de autofocus*/
+    /*min-height:295px; */
+    /*max-height:200px;*/ /*TODO SET THIS*/
+}
+
+/*content_divider*/
+div.agricon-content-divider {
+    border-bottom: 1px solid black;
+}
+
+section {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+
+/*backbuttons (back to previous page)*/
+p.agricon-back-to-page-button {
+    display: inline-block;
+    margin: 0;
+    float: right;
+    z-index: 3;
+}
+
+p.agricon-back-to-page-button > button {
+    width: 75px;
+}
+
+/*tables*/
+.agricon-table-container {
+    font-size: 0.8em;
+    /*max-height: 400px; // enkel toepassen bij product, de rest zal nooit echt lang worden*/
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.agricon-table thead th {
+    border-top: none !important;
+    border-bottom: 1px solid gray !important;
+    cursor: pointer;
+    outline: none !important;
+    font-size: 0.95em;
+}
+
+.agricon-table td {
+    vertical-align: middle;
+}
+
+.agricon-table div.agricon-changeable-icon svg,
+.agricon-table div.agricon-delete-icon svg,
+.agricon-table div.agricon-delete-icon-fracties svg,
+.agricon-table div.agricon-delete-icon-nietfracties svg {
+    cursor: pointer;
+}
+
+.agricon-table div.agricon-changeable-icon:hover {
+    color: var(--colorSuccess);
+}
+
+.agricon-table div.agricon-delete-icon:hover,
+.agricon-table div.agricon-delete-icon-fracties:hover,
+.agricon-table div.agricon-delete-icon-nietfracties:hover {
+    color: var(--colorDanger);
+}
+
+.agricon-table input {
+    padding: 0 !important;
+    background-color: transparent;
+    border: none;
+}
+
+.agricon-table input.agricon-is-editable-input {
+    font-weight: bold;
+}
+
+.agricon-table .agricon-sort-icon {
+    display: inline;
+    color: lightgray;
+    margin-left: 5px;
+}
+
+.agricon-table th:hover .agricon-sort-icon {
+    color: black;
+}
+
+div.form-row.agricon-formcolumn div:first-of-type,
+div.form-row.agricon-formcolumn div:last-of-type {
+    padding-left: 0 !important;
+}
+
+.agricon-wijzigbestaande-zoekveld {
+    padding: 25px;
+    padding-bottom: 5px;
+}
+
+/*forms*/
+form div.agricon-formsubmit-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+form div.agricon-formsubmit-container > .btn {
+    width: 125px;
+    margin-right: 5px;
+}
+
+div.form-row {
+    margin-bottom: 5px;
+}
+
+form label {
+    margin-bottom: 0 !important;
+    font-size: 0.8em;
+}
+
+/*form editable dropdown*/
+.agricon-editable-dropdown {
+    background-color: transparent !important;
+    border: none;
+    font-size: 1em;
+    /*TODO height NIET ONDERSTEUND IN FIREFOX*/
+    /*height: 19px !important;*/
+    margin-left: -7px;
+}
+
+/*icons*/
+div.agricon-fa-icon-plus {
+    color: var(--agriconGreen3);
+    font-size: 1.7em;
+    text-align: center;
+    margin-top: 20px; /*omdat labels 20 hoog zijn*/
+}
+
+div.agricon-fa-icon-plus:hover {
+    color: var(--colorSuccess);
+}
+
+div.agricon-changeable-icon svg:not(.fa-pencil-alt) {
+    color: var(--colorSuccess);
+}
+
+/* main_header
+-------------------------------------------------- */
+#main_header .agricon-agriconlogo {
+    height: 2.1em;
+    width: auto;
+    margin-top: -4px;
+    margin-right: 10px;
+    /*filter:brightness(130%);*/
+    filter: saturate(3);
+}
+
+#main_header.bg-dark {
+    background-color: var(--agriconGreen5) !important;
+}
+
+h6.dropdown-header {
+    background-color: lightgray;
+    padding-left: 10px !important;
+}
+
+/* main_footer
+-------------------------------------------------- */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+    /*background-color: var(--agriconGreen3);*/
+}
+
+/* CALCULATION ICON AND DIVS ALGEMEEN
+-------------------------------------------------- */
+
+div.agricon-calculation-message-container {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background-color: lightgrey;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-left: 32px;
+    overflow-y: auto;
+}
+
+div.agricon-c-m-c-default {
+    top: -154px;
+    height: 150px;
+    border-radius: 3px;
+}
+
+div.agricon-c-m-c-large {
+    width: 100.3%;
+    left: -1px;
+    top: -154px;
+    min-height: 150px;
+    border-radius: 3px;
+    margin-bottom: 25px !important;
+}
+
+div.agricon-hide-this {
+    display: none;
+}
+
+div.agricon-calculation-message-container #closeThis,
+div.agricon-calculation-message-container #bekijkGrootOfKlein {
+    color: royalblue;
+    float: right;
+    cursor: pointer;
+    padding-right: 10px;
+    font-size: 14px;
+    margin-top: -2px;
+}
+
+div.agricon-calculation-message-container hr {
+    margin-top: 2px;
+    margin-left: -32px;
+
+}
+
+/*div.agricon-calculation-message-trigger {*/
+/*position: absolute;*/
+/*width: 20px;*/
+/*z-index: 5;*/
+/*text-align: center;*/
+/*cursor: pointer*/
+/*}*/
+
+/* AJAX TABLES ALGEMEEN
+-------------------------------------------------- */
+tr.trGlow td {
+    /*background-color: lightgreen;*/
+    /*background-color: var(-agriconGreen1);*/
+    /*background-color: var(--agriconYellow);*/
+    background-color: lightgoldenrodyellow;
+}
+
+.agricon-wijzigbestaande-ajaxtable table td:first-of-type,
+.agricon-wijzigbestaande-ajaxtable table th:first-of-type {
+    width: 30px;
+}
+
+/*laatste 2 kolommen - een vaste breedte geven (edit icon en delete icon)*/
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(11),
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(11),
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(12),
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(12),
+#content_config_eenheid_toevoegen #config_eenheid_table th:nth-of-type(7),
+#content_config_eenheid_toevoegen #config_eenheid_table td:nth-of-type(7),
+#content_config_eenheid_toevoegen #config_eenheid_table th:nth-of-type(8),
+#content_config_eenheid_toevoegen #config_eenheid_table td:nth-of-type(8),
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(10),
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(10),
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(11),
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(11),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table th:nth-of-type(7),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table td:nth-of-type(7),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table th:nth-of-type(8),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table td:nth-of-type(8),
+#content_stadgemeente_beheren #stadgemeente_table th:nth-of-type(9),
+#content_stadgemeente_beheren #stadgemeente_table td:nth-of-type(9),
+#content_stadgemeente_beheren #stadgemeente_table th:nth-of-type(10),
+#content_stadgemeente_beheren #stadgemeente_table td:nth-of-type(10),
+#content_land_beheren #land_table th:nth-of-type(7),
+#content_land_beheren #land_table td:nth-of-type(7),
+#content_land_beheren #land_table th:nth-of-type(8),
+#content_land_beheren #land_table td:nth-of-type(8),
+#content_leverancier_soort_beheren #leverancier_soort_table th:nth-of-type(7),
+#content_leverancier_soort_beheren #leverancier_soort_table td:nth-of-type(7),
+#content_leverancier_soort_beheren #leverancier_soort_table th:nth-of-type(8),
+#content_leverancier_soort_beheren #leverancier_soort_table td:nth-of-type(8),
+#content_leverancier_beheren #leverancier_table th:nth-of-type(12),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(12),
+#content_leverancier_beheren #leverancier_table th:nth-of-type(13),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(13),
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(11),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(11),
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(12),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(12),
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(12),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(12),
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(13),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(13),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(9),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(9),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(10),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(10),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(9),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(9),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(10),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(10),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table th:nth-of-type(10),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table td:nth-of-type(10),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table th:nth-of-type(11),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table td:nth-of-type(11),
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(11),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(11),
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(12),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(12),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(10),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(10),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(11),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(11),
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(10),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(10),
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(11),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(11),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(20),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(20),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(21),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(21),
+#content_machine_soort_beheren #machine_soort_table th:nth-of-type(7),
+#content_machine_soort_beheren #machine_soort_table td:nth-of-type(7),
+#content_machine_soort_beheren #machine_soort_table th:nth-of-type(8),
+#content_machine_soort_beheren #machine_soort_table td:nth-of-type(8),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(10),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(10),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(11),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(11),
+#content_users_beheren #users_table th:nth-of-type(6),
+#content_users_beheren #users_table td:nth-of-type(6),
+#content_users_beheren #users_table th:nth-of-type(7),
+#content_users_beheren #users_table td:nth-of-type(7),
+#content_product_beheren #product_table th:nth-of-type(15),
+#content_product_beheren #product_table td:nth-of-type(15),
+#content_product_beheren #product_table th:nth-of-type(16),
+#content_product_beheren #product_table td:nth-of-type(16),
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(10),
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(10),
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(11),
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(11) {
+    width: 30px;
+}
+
+/*laatste 4 kolommen (buiten de laatste 2 kolommen) - th (en innerdiv van tablesorter) BREEDTE - (gewijzigde en toegevoegde "DATUM")*/
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(7),
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(7) div,
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(9),
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(9) div,
+#content_config_eenheid_toevoegen #config_eenheid_table th:nth-of-type(3),
+#content_config_eenheid_toevoegen #config_eenheid_table th:nth-of-type(3) div,
+#content_config_eenheid_toevoegen #config_eenheid_table th:nth-of-type(5),
+#content_config_eenheid_toevoegen #config_eenheid_table th:nth-of-type(5) div,
+#content_config_verpakkingskost_toevoegen #config_verpakkingskost_table th:nth-of-type(3),
+#content_config_verpakkingskost_toevoegen #config_verpakkingskost_table th:nth-of-type(3) div,
+#content_config_verpakkingskost_toevoegen #config_verpakkingskost_table th:nth-of-type(5),
+#content_config_verpakkingskost_toevoegen #config_verpakkingskost_table th:nth-of-type(5) div,
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(6),
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(6) div,
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(8),
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(8) div,
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table th:nth-of-type(3),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table th:nth-of-type(3) div,
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table th:nth-of-type(5),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table th:nth-of-type(5) div,
+#content_stadgemeente_beheren #stadgemeente_table th:nth-of-type(5),
+#content_stadgemeente_beheren #stadgemeente_table th:nth-of-type(5) div,
+#content_stadgemeente_beheren #stadgemeente_table th:nth-of-type(7),
+#content_stadgemeente_beheren #stadgemeente_table th:nth-of-type(7) div,
+#content_land_beheren #land_table th:nth-of-type(3),
+#content_land_beheren #land_table th:nth-of-type(3) div,
+#content_land_beheren #land_table th:nth-of-type(5),
+#content_land_beheren #land_table th:nth-of-type(5) div,
+#content_leverancier_soort_beheren #leverancier_soort_table th:nth-of-type(3),
+#content_leverancier_soort_beheren #leverancier_soort_table th:nth-of-type(3) div,
+#content_leverancier_soort_beheren #leverancier_soort_table th:nth-of-type(5),
+#content_leverancier_soort_beheren #leverancier_soort_table th:nth-of-type(5) div,
+#content_leverancier_beheren #leverancier_table th:nth-of-type(8),
+#content_leverancier_beheren #leverancier_table th:nth-of-type(8) div,
+#content_leverancier_beheren #leverancier_table th:nth-of-type(10),
+#content_leverancier_beheren #leverancier_table th:nth-of-type(10) div,
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(7),
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(7) div,
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(9),
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(9) div,
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(8),
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(8) div,
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(10),
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(10) div,
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(5),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(5) div,
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(7),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(7) div,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(5),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(5) div,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(7),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(7) div,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table th:nth-of-type(6),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table th:nth-of-type(6) div,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table th:nth-of-type(8),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table th:nth-of-type(8) div,
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(7),
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(7) div,
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(9),
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(9) div,
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(6),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(6) div,
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(8),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(8) div,
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(6),
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(6) div,
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(8),
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(8) div,
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(16),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(16) div,
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(18),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(18) div,
+#content_machine_soort_beheren #machine_soort_table th:nth-of-type(3),
+#content_machine_soort_beheren #machine_soort_table th:nth-of-type(3) div,
+#content_machine_soort_beheren #machine_soort_table th:nth-of-type(5),
+#content_machine_soort_beheren #machine_soort_table th:nth-of-type(5) div,
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(6),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(6) div,
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(8),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(8) div,
+#content_users_beheren #users_table td:nth-of-type(5),
+#content_users_beheren #users_table td:nth-of-type(5) div,
+#content_product_beheren #product_table th:nth-of-type(11),
+#content_product_beheren #product_table th:nth-of-type(11) div,
+#content_product_beheren #product_table th:nth-of-type(13),
+#content_product_beheren #product_table th:nth-of-type(13) div,
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(6),
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(6) div,
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(8),
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(8) div,
+    #content_product_bekijken #product_bekijken_table th:nth-of-type(11),
+    #content_product_bekijken #product_bekijken_table th:nth-of-type(11) div,
+    #content_product_bekijken #product_bekijken_table th:nth-of-type(13),
+    #content_product_bekijken #product_bekijken_table th:nth-of-type(13) div,
+
+#content_product_bekijken_grondstoffen #product_grondstoffen_table th:nth-of-type(5),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table th:nth-of-type(5) div,
+#content_product_bekijken_grondstoffen #product_grondstoffen_table th:nth-of-type(7),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table th:nth-of-type(7) div{
+    width: 102px;
+}
+
+/*laatste 4 kolommen (buiten de laatste 2 kolommen) - td BREEDTE EN OPMAAK (gewijzigde en toegevoegde "DATUM")*/
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(7),
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(9),
+#content_config_eenheid_toevoegen #config_eenheid_table td:nth-of-type(3),
+#content_config_eenheid_toevoegen #config_eenheid_table td:nth-of-type(5),
+#content_config_verpakkingskost_toevoegen #config_verpakkingskost_table td:nth-of-type(3),
+#content_config_verpakkingskost_toevoegen #config_verpakkingskost_table td:nth-of-type(5),
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(6),
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(8),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table td:nth-of-type(3),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table td:nth-of-type(5),
+#content_stadgemeente_beheren #stadgemeente_table td:nth-of-type(5),
+#content_stadgemeente_beheren #stadgemeente_table td:nth-of-type(7),
+#content_land_beheren #land_table td:nth-of-type(3),
+#content_land_beheren #land_table td:nth-of-type(5),
+#content_leverancier_soort_beheren #leverancier_soort_table td:nth-of-type(3),
+#content_leverancier_soort_beheren #leverancier_soort_table td:nth-of-type(5),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(8),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(10),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(7),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(9),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(8),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(10),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(5),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(7),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(5),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(7),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table td:nth-of-type(6),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table td:nth-of-type(8),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(7),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(9),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(6),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(8),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(6),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(8),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(16),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(18),
+#content_machine_soort_beheren #machine_soort_table td:nth-of-type(3),
+#content_machine_soort_beheren #machine_soort_table td:nth-of-type(5),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(6),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(8),
+#content_users_beheren #users_table td:nth-of-type(5),
+#content_product_beheren #product_table td:nth-of-type(11),
+#content_product_beheren #product_table td:nth-of-type(13),
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(6),
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(8),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(11),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(13),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table td:nth-of-type(5),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table td:nth-of-type(7){
+    font-size: 10px;
+    font-style: italic;
+    /*color: deeppink; !*TODO *********************************************************************************!*/
+    width: 102px !important;
+}
+
+/*laatste 4 kolommen (buiten de laatste 2 kolommen) - td BREEDTE EN OPMAAK (gewijzigde en toegevoegde "DOOR")*/
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(8),
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(10),
+#content_config_eenheid_toevoegen #config_eenheid_table td:nth-of-type(4),
+#content_config_eenheid_toevoegen #config_eenheid_table td:nth-of-type(6),
+#content_config_verpakkingskost_toevoegen #config_verpakkingskost_table td:nth-of-type(4),
+#content_config_verpakkingskost_toevoegen #config_verpakkingskost_table td:nth-of-type(6),
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(7),
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(9),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table td:nth-of-type(4),
+#content_grondstof_categorie_toevoegen #grondstof_categorie_table td:nth-of-type(6),
+#content_stadgemeente_beheren #stadgemeente_table td:nth-of-type(6),
+#content_stadgemeente_beheren #stadgemeente_table td:nth-of-type(8),
+#content_land_beheren #land_table td:nth-of-type(4),
+#content_land_beheren #land_table td:nth-of-type(6),
+#content_leverancier_soort_beheren #leverancier_soort_table td:nth-of-type(4),
+#content_leverancier_soort_beheren #leverancier_soort_table td:nth-of-type(6),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(9),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(11),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(8),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(10),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(9),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(11),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(6),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(8),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(6),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(8),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table td:nth-of-type(7),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table td:nth-of-type(9),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(8),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(10),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(7),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(9),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(7),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(9),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(17),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(19),
+#content_machine_soort_beheren #machine_soort_table td:nth-of-type(4),
+#content_machine_soort_beheren #machine_soort_table td:nth-of-type(6),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(7),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(9),
+#content_product_beheren #product_table td:nth-of-type(12),
+#content_product_beheren #product_table td:nth-of-type(14),
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(7),
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(9),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(12),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(14),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table td:nth-of-type(6),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table td:nth-of-type(8){
+    font-size: 10px;
+    font-style: italic;
+    /*color: red; !*TODO *********************************************************************************!*/
+    width: 60px !important;
+}
+
+/* content_grondstofRuw
+-------------------------------------------------- */
+#content_grondstof_ruw_beheren div#errorMessage_fractiePercentageContainer {
+    position: relative;
+}
+
+#content_grondstof_ruw_beheren p#errorMessage_fractiePercentage {
+    position: absolute;
+    top: -84px;
+    left: 150px;
+    font-size: 12px;
+    color: darkred;
+}
+
+/*AJAX TABLE*/
+/*categorie*/
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(3),
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(3) div,
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(3),
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(3) input {
+    /*verwijderd/hidden omdat dit veel impact heeft in de applicatie en geen tijd om deze functies te schrijven door deadline*/
+    width: 1px !important; /*mag geen min-width zijn*/
+    color: white !important;
+}
+
+/*aankoopprijs*/
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(4),
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(4) div,
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(4),
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(4) input {
+    width: 105px; /*mag geen min-width zijn*/
+    text-align: right;
+}
+
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(4) input {
+    padding-right: 14px !important;
+}
+
+/*/per*/
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(5),
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(5) div,
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(5),
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(5) input {
+    width: 50px;
+}
+
+/*fracties*/
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(6),
+#content_grondstof_ruw_beheren #grondstof_ruw_table th:nth-of-type(6) div,
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(6),
+#content_grondstof_ruw_beheren #grondstof_ruw_table td:nth-of-type(6) input {
+    text-align: center;
+}
+
+/* content_grondstofAfgewerkt
+-------------------------------------------------- */
+#fractiesToevoegenButton {
+    cursor: pointer;
+    padding-top: 30px;
+    margin-left: 15px;
+    color: var(--agriconGreen3);
+    opacity: 1;
+}
+
+#fractiesToevoegenButton:hover {
+    color: var(--colorSuccess);
+}
+
+/*NIET FRACTIES*/
+/*aankoopprijs */
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table th:nth-of-type(4),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table th:nth-of-type(4) div,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table td:nth-of-type(4),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table td:nth-of-type(4) input {
+    width: 105px; /*mag geen min-width zijn*/
+    text-align: right;
+}
+
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pernietfracties_table td:nth-of-type(4) input {
+    padding-right: 14px !important;
+}
+
+/*FRACTIES*/
+/*fractie % */
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(3),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(3) div,
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(3),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(3) input,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(3),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(3) div,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(3),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(3) input {
+    width: 80px;
+    text-align: right;
+}
+
+/*prijs/fractie*/
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(4),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(4) div,
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(4),
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(4) input,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(4),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table th:nth-of-type(4) div,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(4),
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(4) input {
+    width: 96px;
+    text-align: right;
+}
+
+/*padding-right geven voor de inputs waar text-align "right" is */
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(3) input,
+#content_grondstof_afgewerkt_pergrondstofruwid_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(4) input,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(3) input,
+#content_grondstof_afgewerkt_beheren #grondstof_afgewerkt_pergrondstofruwid_table td:nth-of-type(4) input {
+    padding-right: 14px !important;
+}
+
+/* content_leveranciers
+-------------------------------------------------- */
+/*AJAX TABLE*/
+/*leverancier-huisnummer*/
+#content_leverancier_beheren #leverancier_table th:nth-of-type(4),
+#content_leverancier_beheren #leverancier_table th:nth-of-type(4) div,
+#content_leverancier_beheren #leverancier_table td:nth-of-type(4),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(4) input {
+    width: 40px;
+}
+
+/*leverancier-stad*/
+#content_leverancier_beheren #leverancier_table th:nth-of-type(5),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(5),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(5) select {
+    width: 100px;
+}
+
+/*leverancier-soort*/
+#content_leverancier_beheren #leverancier_table th:nth-of-type(6),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(6),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(6) select {
+    width: 130px;
+}
+
+/*leverancier-btwnummer*/
+#content_leverancier_beheren #leverancier_table th:nth-of-type(7),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(7),
+#content_leverancier_beheren #leverancier_table td:nth-of-type(7) input {
+    width: 120px;
+}
+
+/* content_steden
+-------------------------------------------------- */
+/*AJAX TABLE*/
+/*land*/
+#content_stadgemeente_beheren #stadgemeente_table th:nth-of-type(4),
+#content_stadgemeente_beheren #stadgemeente_table td:nth-of-type(4),
+#content_stadgemeente_beheren #stadgemeente_table td:nth-of-type(4) select {
+    min-width: 100px;
+}
+
+/* content_folie_gesneden
+-------------------------------------------------- */
+/*AJAX TABLE*/
+/*afslag en breedte en */
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(3),
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(3) div,
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(3),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(3) input,
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(4),
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(4) div,
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(4),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(4) input {
+    width: 65px;
+}
+
+/*zakjes/rol en prijs/zakje*/
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(6),
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(6) div,
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(6),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(6) input,
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(7),
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(7) div,
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(7),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(7) input {
+    width: 85px;
+}
+
+/*ruwefolie*/
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(5),
+#content_folie_gesneden_beheren #folie_gesneden_table th:nth-of-type(5) div,
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(5),
+#content_folie_gesneden_beheren #folie_gesneden_table td:nth-of-type(5) select {
+    width: 100px;
+}
+
+/* content_folie_ruw
+-------------------------------------------------- */
+/*AJAX TABLE*/
+/*lmprijs en lm eenheid*/
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(3),
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(3) div,
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(3),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(3) input {
+    width: 65px;
+}
+
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(4),
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(4) div,
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(4),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(4) input {
+    width: 85px;
+}
+
+/*micron*/
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(5),
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(5) div,
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(5),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(5) input {
+    width: 55px;
+}
+
+/*leverancier*/
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(6),
+#content_folie_ruw_beheren #folie_ruw_table th:nth-of-type(6) div,
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(6),
+#content_folie_ruw_beheren #folie_ruw_table td:nth-of-type(6) select {
+    width: 94px;
+}
+
+/* content_database_backup
+-------------------------------------------------- */
+#dbBackup_content h4 {
+    margin-bottom: 25px;
+}
+
+.dbBackupButton {
+    display: inline-block;
+    width: 200px;
+}
+
+#dbBackupComment_input {
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    font-size: 12px;
+    outline: none;
+}
+
+#dbBackupComment_input:focus {
+    border-bottom-color: var(--colorSuccess);
+}
+
+/*dropdown*/
+.dbDropdown {
+    display: inline-block;
+    width: 300px;
+    font-size: 12px;
+}
+
+/*fileinput uploadbutton/ (custom)*/
+.uploadFileContainer {
+    color: darkslategray;
+    display: inline-block;
+    width: 300px !important;
+    height: 38px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.uploadFileContainer span {
+    text-align: left;
+    font-size: 12px;
+    line-height: 2.05;
+    margin-left: -3px;
+    width: 295px !important;
+}
+
+/* content_kost_elektriciteit
+-------------------------------------------------- */
+/*AJAX TABLE*/
+/*naam*/
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(2),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(2) div,
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(2),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(2) input {
+    width: 100%;
+    min-width: 110px;
+}
+
+/*verbruik/jaar*/
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(3),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(3) div,
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(3),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(3) input {
+    width: 145px;
+    text-align: right;
+}
+
+/*kostprijs/kw*/
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(4),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(4) div,
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(4),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(4) input {
+    width: 110px;
+    text-align: right;
+}
+
+/*kost/jaar*/
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(5),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table th:nth-of-type(5) div,
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(5),
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(5) input {
+    width: 85px;
+    text-align: right;
+}
+
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(3) input,
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(4) input,
+#content_kost_elektriciteit_beheren #kost_elektriciteit_table td:nth-of-type(5) input {
+    padding-right: 14px !important;
+}
+
+/* content_kost_gebouwen
+-------------------------------------------------- */
+/*AJAX TABLE*/
+/*naam*/
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(2),
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(2) div,
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(2),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(2) input {
+    width: 100%;
+    min-width: 110px;
+}
+
+/*verbruik/jaar*/
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(3),
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(3) div,
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(3),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(3) input {
+    width: 105px;
+    text-align: right;
+}
+
+/*kostprijs/kw*/
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(4),
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(4) div,
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(4),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(4) input {
+    width: 125px;
+    text-align: right;
+}
+
+/*kost/jaar*/
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(5),
+#content_kost_gebouwen_beheren #kost_gebouwen_table th:nth-of-type(5) div,
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(5),
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(5) input {
+    width: 85px;
+    text-align: right;
+}
+
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(3) input,
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(4) input,
+#content_kost_gebouwen_beheren #kost_gebouwen_table td:nth-of-type(5) input {
+    padding-right: 14px !important;
+}
+
+/* content_kost_personeel
+-------------------------------------------------- */
+/*AJAX TABLE*/
+/*naam*/
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(2),
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(2) div,
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(2),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(2) input {
+    width: 100%;
+    min-width: 110px;
+}
+
+/*werknemers*/
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(3),
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(3) div,
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(3),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(3) input {
+    width: 100px;
+    text-align: right;
+}
+
+/*uren/dag & uurloon*/
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(5),
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(5) div,
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(5),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(5) input,
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(4),
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(4) div,
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(4),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(4) input {
+    width: 80px;
+    text-align: right;
+}
+
+/*kost/jaar*/
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(6),
+#content_kost_personeel_beheren #kost_personeel_table th:nth-of-type(6) div,
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(6),
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(6) input {
+    width: 90px;
+    text-align: right;
+}
+
+/*padding right bij td's die text-align right hebben*/
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(3) input,
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(4) input,
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(5) input,
+#content_kost_personeel_beheren #kost_personeel_table td:nth-of-type(6) input {
+    padding-right: 14px !important;
+}
+
+/* content_kost_machines
+-------------------------------------------------- */
+
+/*machinesoort*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(3),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(3) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(3),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(3) select {
+    width: 105px;
+}
+
+/*aankoopprijs*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(4),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(4) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(4),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(4) input {
+    width: 105px;
+    text-align: right;
+}
+
+/*aantal*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(5),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(5) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(5),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(5) input {
+    width: 55px;
+    text-align: right;
+}
+
+/*afschrijfperiode*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(6),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(6) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(6),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(6) input {
+    width: 115px;
+    text-align: right;
+}
+
+/*afschrijfperiode kost*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(7),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(7) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(7),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(7) input {
+    width: 125px;
+    text-align: right;
+}
+
+/*onderhoud frequentie*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(8),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(8) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(8),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(8) input {
+    width: 155px;
+    text-align: right;
+}
+
+/*onderhoud Kost*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(9),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(9) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(9),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(9) input {
+    width: 115px;
+    text-align: right;
+}
+
+/*onderhoud uren*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(10),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(10) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(10),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(10) input {
+    width: 115px;
+    text-align: right;
+}
+
+/*onderhoud uurloon*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(11),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(11) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(11),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(11) input {
+    width: 135px;
+    text-align: right;
+}
+
+/*onderhoud kost/jaar*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(12),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(12) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(12),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(12) input {
+    width: 145px;
+    text-align: right;
+}
+
+/*reparatie kost/jaar*/
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(13),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(13) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(13),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(13) input {
+    width: 135px;
+    text-align: right;
+}
+
+/*reparaties */
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(14),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(14) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(14),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(14) input {
+    width: 85px;
+    text-align: center;
+}
+
+/*totaalkost */
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(15),
+#content_kost_machines_beheren #kost_machines_table th:nth-of-type(15) div,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(15),
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(15) input {
+    width: 110px;
+    text-align: right;
+}
+
+/*padding right bij td's die text-align right hebben*/
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(4) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(5) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(6) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(7) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(8) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(9) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(10) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(11) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(12) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(13) input,
+#content_kost_machines_beheren #kost_machines_table td:nth-of-type(15) input {
+    padding-right: 14px !important;
+
+}
+
+/* content_kost_machines_reparaties
+-------------------------------------------------- */
+
+/*reparatie kost & reparatie uren */
+
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(2),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(2) div,
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(2),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(2) input {
+    /*width: 110px; // geen vaste breedte !*/
+    text-align: right;
+}
+
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(3),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(3) div,
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(3),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(3) input {
+    width: 110px;
+    text-align: right;
+}
+
+/*reparatie uurloon */
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(4),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(4) div,
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(4),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(4) input {
+    width: 130px;
+    text-align: right;
+}
+
+/*totaalkost */
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(5),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table th:nth-of-type(5) div,
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(5),
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(5) input {
+    width: 145px;
+    text-align: right;
+}
+
+/*padding right bij td's die text-align right hebben*/
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(2) input,
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(3) input,
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(4) input,
+#content_kost_machines_reparaties_beheren #kost_machines_reparaties_table td:nth-of-type(5) input {
+    padding-right: 14px !important;
+}
+
+/* content_config_omzet
+-------------------------------------------------- */
+/*AJAX TABLE*/
+/*zakjes/dag en dagen/jaar */
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(3),
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(3) div,
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(3),
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(3) input,
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(4),
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(4) div,
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(4),
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(4) input {
+    width: 88px;
+    text-align: right;
+}
+
+/*zakjes/jaar */
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(5),
+#content_config_omzet_toevoegen #config_omzet_table th:nth-of-type(5) div,
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(5),
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(5) input {
+    width: 95px;
+    text-align: right;
+}
+
+/*padding right bij td's die text-align right hebben*/
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(3) input,
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(4) input,
+#content_config_omzet_toevoegen #config_omzet_table td:nth-of-type(5) input {
+    padding-right: 14px !important;
+}
+
+/* content_users
+-------------------------------------------------- */
+/*AJAX TABLE*/
+/*level*/
+#content_users_beheren #users_table th:nth-of-type(3),
+#content_users_beheren #users_table th:nth-of-type(3) div,
+#content_users_beheren #users_table td:nth-of-type(3),
+#content_users_beheren #users_table td:nth-of-type(3) input {
+    width: 77px;
+}
+
+/*wachtwoord*/
+#content_users_beheren #users_table th:nth-of-type(4),
+#content_users_beheren #users_table th:nth-of-type(4) div,
+#content_users_beheren #users_table td:nth-of-type(4),
+#content_users_beheren #users_table td:nth-of-type(4) input {
+    width: 300px;
+}
+
+/* content_product_beheren
+-------------------------------------------------- */
+/*kolomstructuur*/
+div#agricon_product_accordion_met_overzicht_container > div#accordion {
+    padding-left: 15px;
+}
+
+div#agricon_product_accordion_met_overzicht_container > div#grondstof_overzicht_container {
+    /*background-color: yellow;*/
+    padding-bottom: 20px;
+}
+
+/*overzicht - inner content - alles*/
+div#agricon_product_accordion_met_overzicht_container div#grondstof_overzicht_content {
+    height: 100%;
+    margin-right: 0px;
+    margin-left: -15px;
+    margin-bottom: -15px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background-color: whitesmoke;
+}
+
+/*overzicht - inner content - titel*/
+div#agricon_product_accordion_met_overzicht_container div#grondstof_overzicht_titel {
+    background-color: lightgrey;
+    height: 60px;
+    margin: 0px;
+    padding-left: 25px;
+    font-size: 14px;
+    border-bottom: 1px solid darkgrey;
+}
+
+/*overzicht - inner content - target om toe te voegen*/
+div#agricon_product_accordion_met_overzicht_container div#grondstof_overzicht_target {
+    padding: 10px;
+    padding-top: 0px;
+    font-size: 12px;
+}
+
+div#agricon_product_accordion_met_overzicht_container div#grondstof_overzicht_target p.overzicht-subtitle {
+    font-weight: 600;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    margin-bottom: 2px;
+    margin-top: 25px;
+}
+
+span.delete-grondstof-icon {
+    display: inline;
+    float: right;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+}
+
+span.delete-grondstof-icon:hover {
+    color: var(--colorDanger);
+}
+
+/*kolomstructuur BEREKENING*/
+div#agricon_product_accordion_met_overzicht_container > div#accordion {
+    padding-left: 15px;
+}
+
+div#agricon_product_accordion_met_overzicht_container > div#grondstof_overzichtberekening_container {
+    /*background-color: yellow;*/
+    padding-bottom: 20px;
+}
+
+/*overzicht - inner content - alles*/
+div#agricon_product_accordion_met_overzicht_container div#grondstof_overzichtberekening_content {
+    height: 100%;
+    margin-right: 0px;
+    margin-left: -15px;
+    margin-bottom: -15px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background-color: whitesmoke;
+}
+
+/*overzicht - inner content - titel*/
+div#agricon_product_accordion_met_overzicht_container div#grondstof_overzichtberekening_titel {
+    background-color: lightgrey;
+    height: 60px;
+    margin: 0px;
+    padding-left: 25px;
+    font-size: 14px;
+    border-bottom: 1px solid darkgrey;
+}
+
+/*overzicht - inner content - target om toe te voegen*/
+div#agricon_product_accordion_met_overzicht_container div#grondstof_overzichtberekening_target {
+    padding: 10px;
+    padding-top: 0px;
+    font-size: 12px;
+}
+
+div#agricon_product_accordion_met_overzicht_container div#grondstof_overzichtberekening_target p.overzichtberekening-subtitle {
+    font-weight: 600;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    margin-bottom: 2px;
+    margin-top: 25px;
+}
+
+span.delete-grondstof-icon {
+    display: inline;
+    float: right;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+}
+
+span.delete-grondstof-icon:hover {
+    color: var(--colorDanger);
+}
+
+/*AJAX TABLE*/
+/*code*/
+#content_product_beheren #product_table th:nth-of-type(2),
+#content_product_beheren #product_table th:nth-of-type(2) div,
+#content_product_beheren #product_table td:nth-of-type(2),
+#content_product_beheren #product_table td:nth-of-type(2) input {
+    width: 85px; /*mag geen min-width zijn*/
+}
+
+/*beschrijving*/
+#content_product_beheren #product_table th:nth-of-type(3),
+#content_product_beheren #product_table th:nth-of-type(3) div,
+#content_product_beheren #product_table td:nth-of-type(3),
+#content_product_beheren #product_table td:nth-of-type(3) input {
+    width: 250px;
+}
+
+/*prijs*/
+#content_product_beheren #product_table th:nth-of-type(4),
+#content_product_beheren #product_table th:nth-of-type(4) div,
+#content_product_beheren #product_table td:nth-of-type(4),
+#content_product_beheren #product_table td:nth-of-type(4) input {
+    text-align: right;
+    width: 75px;
+}
+
+/*#content_product_beheren #product_table td:nth-of-type(4):before {*/
+/*content: '€';*/
+/*}*/
+
+/*stuks/pallet*/
+#content_product_beheren #product_table th:nth-of-type(5),
+#content_product_beheren #product_table th:nth-of-type(5) div,
+#content_product_beheren #product_table td:nth-of-type(5),
+#content_product_beheren #product_table td:nth-of-type(5) input {
+    text-align: right;
+    width: 90px;
+}
+
+/*inhoud/zak*/
+#content_product_beheren #product_table th:nth-of-type(6),
+#content_product_beheren #product_table th:nth-of-type(6) div,
+#content_product_beheren #product_table td:nth-of-type(6),
+#content_product_beheren #product_table td:nth-of-type(6) input {
+    text-align: right;
+    width: 88px;
+}
+
+/*folie*/
+#content_product_beheren #product_table th:nth-of-type(7),
+#content_product_beheren #product_table th:nth-of-type(7) div,
+#content_product_beheren #product_table td:nth-of-type(7),
+#content_product_beheren #product_table td:nth-of-type(7) select {
+    width: 88px; /*mag geen min-width zijn*/
+}
+
+/*verpakkingskost*/
+#content_product_beheren #product_table th:nth-of-type(8),
+#content_product_beheren #product_table th:nth-of-type(8) div,
+#content_product_beheren #product_table td:nth-of-type(8),
+#content_product_beheren #product_table td:nth-of-type(8) select {
+    width: 115px;
+    font-size: 12px !important;
+}
+
+/*grondstoffen bekijken*/
+#content_product_beheren #product_table th:nth-of-type(9),
+#content_product_beheren #product_table th:nth-of-type(9) div,
+#content_product_beheren #product_table td:nth-of-type(9),
+#content_product_beheren #product_table td:nth-of-type(9) input {
+    text-align: center;
+    width: 100px;
+}
+
+/*kosten bekijken*/
+#content_product_beheren #product_table th:nth-of-type(10),
+#content_product_beheren #product_table th:nth-of-type(10) div,
+#content_product_beheren #product_table td:nth-of-type(10),
+#content_product_beheren #product_table td:nth-of-type(10) input {
+    text-align: center;
+    width: 120px;
+}
+
+/*padding right bij td's die text-align right hebben*/
+#content_product_beheren #product_table td:nth-of-type(4) input,
+#content_product_beheren #product_table td:nth-of-type(5) input,
+#content_product_beheren #product_table td:nth-of-type(6) input {
+    padding-right: 14px !important;
+}
+
+/*modal (ook bij view content_product_bekijken via Home controller)*/
+#productBerekeningModal div.modal-header {
+    font-size: 18px;
+}
+
+#productBerekeningModal div.modal-body {
+    font-size: 12px;
+}
+
+#productBerekeningModal div.modal-body h6 {
+    font-size: 14px;
+}
+
+#productBerekeningModal div.modal-body h6.withBorder {
+    border-bottom: 1px solid black;
+}
+
+#productBerekeningModal div.modal-body h6 > span {
+    font-size: 12px !important;
+}
+
+#content_product_beheren #productBerekeningModal span.bolder {
+    font-weight: 600;
+}
+
+/* content_product_beheren_grondstoffen
+-------------------------------------------------- */
+/*naam*/
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(2),
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(2) div,
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(2),
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(2) input {
+    width: 180px;
+}
+
+/*hoeveelheid*/
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(3),
+#content_product_beheren_grondstoffen #product_grondstoffen_table th:nth-of-type(3) div,
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(3),
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(3) input {
+    text-align: right;
+    width: 95px;
+}
+
+/*padding right bij td's die text-align right hebben*/
+#content_product_beheren_grondstoffen #product_grondstoffen_table td:nth-of-type(3) input {
+    padding-right: 30px !important;
+}
+
+
+/* content_product_beheren_productiekosten
+-------------------------------------------------- */
+
+
+
+
+
+/* content_product_bekijken
+-------------------------------------------------- */
+/*code*/
+#content_product_bekijken #product_bekijken_table th:nth-of-type(2),
+#content_product_bekijken #product_bekijken_table th:nth-of-type(2) div,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(2),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(2) input {
+    width: 100px;
+}
+
+/*beschrijving*/
+#content_product_bekijken #product_bekijken_table th:nth-of-type(3),
+#content_product_bekijken #product_bekijken_table th:nth-of-type(3) div,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(3),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(3) input {
+    width: 220px;
+}
+
+/*prijs*/
+#content_product_bekijken #product_bekijken_table th:nth-of-type(4),
+#content_product_bekijken #product_bekijken_table th:nth-of-type(4) div,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(4),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(4) input {
+    text-align: right;
+    width: 75px;
+}
+
+/*stuks/pallet*/
+#content_product_bekijken #product_bekijken_table th:nth-of-type(5),
+#content_product_bekijken #product_bekijken_table th:nth-of-type(5) div,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(5),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(5) input {
+    text-align: right;
+    width: 95px;
+}
+/*inhoud/zak*/
+#content_product_bekijken #product_bekijken_table th:nth-of-type(6),
+#content_product_bekijken #product_bekijken_table th:nth-of-type(6) div,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(6),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(6) input {
+    text-align: right;
+    width: 95px;
+}
+/*folie*/
+#content_product_bekijken #product_bekijken_table th:nth-of-type(7),
+#content_product_bekijken #product_bekijken_table th:nth-of-type(7) div,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(7),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(7) input {
+    width: 300px;
+}
+/*verpakkingskost*/
+#content_product_bekijken #product_bekijken_table th:nth-of-type(8),
+#content_product_bekijken #product_bekijken_table th:nth-of-type(8) div,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(8),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(8) input {
+    text-align: right;
+    width: 115px;
+}
+/*grondstoffen-icoon*/
+#content_product_bekijken #product_bekijken_table th:nth-of-type(9),
+#content_product_bekijken #product_bekijken_table th:nth-of-type(9) div,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(9),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(9) input {
+    text-align: center;
+    width: 100px;
+}
+/*productiekosten-icoon*/
+#content_product_bekijken #product_bekijken_table th:nth-of-type(10),
+#content_product_bekijken #product_bekijken_table th:nth-of-type(10) div,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(10),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(10) input {
+    text-align: center;
+    width: 120px;
+}
+
+/*padding right bij td's die text-align right hebben*/
+#content_product_bekijken #product_bekijken_table td:nth-of-type(4) input,
+#content_product_bekijken #product_bekijken_table td:nth-of-type(5),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(6),
+#content_product_bekijken #product_bekijken_table td:nth-of-type(8){
+    padding-right: 14px !important;
+}
+
+/* content_product_bekijken_grondstoffen
+-------------------------------------------------- */
+/*hoeveelheid*/
+#content_product_bekijken_grondstoffen #product_grondstoffen_table th:nth-of-type(3),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table th:nth-of-type(3) div,
+#content_product_bekijken_grondstoffen #product_grondstoffen_table td:nth-of-type(3),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table td:nth-of-type(3) div{
+    width: 95px;
+    text-align: right;
+}
+
+/*categorie*/
+#content_product_bekijken_grondstoffen #product_grondstoffen_table th:nth-of-type(4),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table th:nth-of-type(4) div,
+#content_product_bekijken_grondstoffen #product_grondstoffen_table td:nth-of-type(4),
+#content_product_bekijken_grondstoffen #product_grondstoffen_table td:nth-of-type(4) div{
+    width: 80px;
+}
+/*padding right bij td's die text-align right hebben*/
+#content_product_bekijken_grondstoffen #product_grondstoffen_table td:nth-of-type(3){
+    padding-right: 14px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fa-calculator:hover {
+    color: var(--colorDanger);
+}
+
+span#addNaamloosFractieLink:hover {
+    text-decoration: underline;
+}
+

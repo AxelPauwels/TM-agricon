@@ -1,0 +1,15 @@
+1) in het project de url aanpassen
+application/config/config.php -> lijn 26 (url)
+application/config/database.php -> lijn 80 en 81 (database gegevens)
+
+2) project op server zetten
+
+3) een map met naam “sql_exports” met schrijfrechten toevoegen in de root van de applicatie (op hetzelfde niveau als de mappen “application” en “assets”)
+en de 3 “STARTPROJECT SQLs” erin plaatsen
+
+4) via phpMyAdmin sql_export “xxx_leeg” importeren vanuit de map “STARTPROJECT SQLs” 
+
+5) inloggen in applicatie met naam “ivan” en paswoord “ivan;” (let op puntkomma bij paswoord)
+
+
+

@@ -1,0 +1,23 @@
+2018-05-18 | deze models gebruiken bij een insert géén zelfgemaakt datum voor 'toegevoegd op'
+
+*************************************************************************************************************
+* function insertFolieGesneden($folie_gesneden) {                                                           *
+*         $folie_gesneden->toegevoegdOp = date('Y-m-d H:i:s', time()); !!!!!!!!! is verwijderd !!!!!!!!!!   *
+*         $this->db->insert('folie_gesneden', $folie_gesneden);                                             *
+*         return $this->db->affected_rows() > 0;                                                            *
+*     }                                                                                                     *
+*************************************************************************************************************
+deze zijn verwijderd en worden nu door de database zelf gedaan (DEFAULT =  CURRENT_TIMESTAMP)
+bij de vorige versie (mySQL 5.5) is het niet mogelijk om current_timestamp meer dan 1 keer te gebruiken éénzelfde tabel,
+en werd dus enkel voor "gewijzigdOp" gebruikt.
+Vandaag heb ik mariaDB 10 geinstalleerd en nu kan men wel werken met meerdere (DEFAULT =  CURRENT_TIMESTAMP)'s
+
+
+
+
+De reden van deze upgrade is om te werken met generated columns.
+
+*************************************************************************************************************
+*   `aantalZakjesPerRol` int(11) GENERATED ALWAYS AS (`lengteAfslag` + `breedte`) PERSISTENT                *
+*************************************************************************************************************
+Bij deze statements worden 'PERSIST' gebruikt ipv 'STORED'. 'STORED' is voor mySQL 5.7+ en 'PERSIST' voor mariaDB
